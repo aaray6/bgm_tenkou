@@ -148,3 +148,50 @@ A段：
 bangumi_anime_do.txt
 bangumi_book_collect.txt
 ```
+
+### aaray6 fork 2020.05.23
+
+原项目地址[https://github.com/pupuhime/bgm_tenkou](https://github.com/pupuhime/bgm_tenkou)
+[BGM的帖子](http://chii.in/group/topic/33926)
+
+#### 删除代码中的bs4(Beautiful Soup), 改用系统自带模块。
+如果系统中没有bs4,可以参考这个[页面](https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html)或者[英文页面](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)安装。
+
+```console
+$ apt-get install python-bs4 (for Python 2)
+
+$ apt-get install python3-bs4 (for Python 3)
+```
+
+#### 修改tenkou.py第一行为
+
+```python
+#!/usr/bin/env python3
+```
+
+#### 原文件为dos格式，转为unix格式
+
+#### 修改tenkou.py BeautifulSoup相关代码如下
+
+```python
+soup = BeautifulSoup(html.decode('utf-8'))
+```
+为
+
+```python
+soup = BeautifulSoup(html.decode('utf-8'), "lxml")
+```
+
+因为修改之前运行提示
+
+```
+/usr/lib/python3/dist-packages/bs4/__init__.py:181: UserWarning: No parser was explicitly specified, so I'm using the best available HTML parser for this system ("lxml"). This usually isn't a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
+
+The code that caused this warning is on line 413 of the file ./tenkou.py. To get rid of this warning, change code that looks like this:
+
+ BeautifulSoup(YOUR_MARKUP})
+
+to this:
+
+ BeautifulSoup(YOUR_MARKUP, "lxml")
+ ```

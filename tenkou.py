@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # version 0.0.2
 
@@ -65,7 +65,8 @@ def getProgress(url, auth, ua):
     opener = generateOpener(auth, ua)
     try:
         html = opener.open(url).read()
-        soup = BeautifulSoup(html.decode('utf-8'))
+        #soup = BeautifulSoup(html.decode('utf-8'))
+        soup = BeautifulSoup(html.decode('utf-8'), "lxml")
         p = soup.find('input', id='watchedeps')['value']
     except urllib.error.URLError as e:
         print(url)
@@ -134,7 +135,8 @@ def export(domain, auth, ua, uid, path, wipe):
             # with open("test.html",'w', encoding='utf-8') as ft:
             #     ft.write(html.decode('utf-8'))
             # # test
-            soup = BeautifulSoup(html.decode('utf-8'))
+            #soup = BeautifulSoup(html.decode('utf-8'))
+            soup = BeautifulSoup(html.decode('utf-8'), "lxml")
             ul = soup.find(id='browserItemList')
             content = ''
             for li in ul.children:
