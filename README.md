@@ -152,7 +152,8 @@ bangumi_book_collect.txt
 ### aaray6 fork 2020.05.23
 
 原项目地址[https://github.com/pupuhime/bgm_tenkou](https://github.com/pupuhime/bgm_tenkou)
-[BGM的帖子](http://chii.in/group/topic/33926)
+
+参考[BGM的帖子](http://chii.in/group/topic/33926)
 
 #### 删除代码中的bs4(Beautiful Soup), 改用系统自带模块。
 如果系统中没有bs4,可以参考这个[页面](https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html)或者[英文页面](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)安装。
